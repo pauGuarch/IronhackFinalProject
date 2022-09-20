@@ -1,4 +1,4 @@
-package com.ironhack.bank.controlles.interfaces;
+package com.ironhack.bank.controllers.interfaces;
 
 import com.ironhack.bank.models.Account;
 import com.ironhack.bank.models.Checking;

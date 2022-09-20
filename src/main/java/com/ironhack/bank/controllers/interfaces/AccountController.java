@@ -1,7 +1,6 @@
-package com.ironhack.bank.controlles.interfaces;
+package com.ironhack.bank.controllers.interfaces;
 
 import com.ironhack.bank.models.Account;
-import org.springframework.security.core.Authentication;
 
 public interface AccountController {
     //Account getAccountById(Authentication auth, Integer id);

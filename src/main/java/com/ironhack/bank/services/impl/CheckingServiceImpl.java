@@ -16,6 +16,8 @@ import java.util.Optional;
 public class CheckingServiceImpl implements CheckingService {
     @Autowired
     private CheckingRepository checkingRepository;
+    @Autowired
+    private AccountRepository accountRepository;
     @Override
     public Checking getCheckingById(Integer id) {
         Optional<Checking> checkingOptional = checkingRepository.findById(id);
@@ -37,8 +39,8 @@ public class CheckingServiceImpl implements CheckingService {
 
     @Override
     public void deleteChecking(Integer checkingId) {
-        Checking checking = getCheckingById(checkingId);
-
-        checkingRepository.delete(checking);
+//        Checking checking = getCheckingById(checkingId);
+//
+//        checkingRepository.delete(checking);
     }
 }

@@ -1,16 +1,19 @@
-/* package com.ironhack.bank.models;
-
+package com.ironhack.bank.models;
+/*
 import javax.persistence.*;
 import java.math.BigDecimal;
 @Entity
+@Table(name = "transaction")
 public class Transaction {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Integer id;
-    @Embedded
+    @ManyToOne
+    @JoinColumn(name = "origin_account")
     private Account originAccount;
-    @Embedded
+    @ManyToOne
+    @JoinColumn(name = "destiny_account")
     private Account destinyAccount;
     @Column(name = "amount")
     private BigDecimal amount;

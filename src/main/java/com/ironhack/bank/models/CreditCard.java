@@ -6,9 +6,11 @@ import com.ironhack.bank.enums.AccountStatus;
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.persistence.PrimaryKeyJoinColumn;
 import java.math.BigDecimal;
 
 @Entity
+@PrimaryKeyJoinColumn(name = "id")
 @DiscriminatorValue("2")
 public class CreditCard extends Account{
     @Column(name = "credit_limit")
@@ -19,11 +21,10 @@ public class CreditCard extends Account{
     public CreditCard() {
     }
 
-    public CreditCard(Integer id, Money balance, String secretKey, Owner primaryOwner, Owner secondaryOwner,
-                      BigDecimal penaltyFee, BigDecimal creditLimit, BigDecimal interestRate, AccountStatus status) {
-        super(id, balance, secretKey, primaryOwner, penaltyFee, status);
-        this.setCreditLimit(creditLimit);
-        this.setInterestRate(interestRate);
+    public CreditCard(Integer id, Money balance, String secretKey, Owner ownerId, Owner secondaryOwner, BigDecimal penaltyFee, AccountStatus status, BigDecimal creditLimit, BigDecimal interestRate) {
+        super(id, balance, secretKey, ownerId, secondaryOwner, penaltyFee, status);
+        this.creditLimit = creditLimit;
+        this.interestRate = interestRate;
     }
 
     public BigDecimal getCreditLimit() {

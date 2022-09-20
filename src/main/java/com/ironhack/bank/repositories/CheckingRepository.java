@@ -7,4 +7,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface CheckingRepository extends JpaRepository<Checking, Integer> {
+
 }

@@ -22,26 +22,27 @@ public class Account {
     @ManyToOne
     @JoinColumn(name = "primary_owner")
     private Owner ownerId;
-    @ManyToOne
     //@JoinColumn(name = "owner_id", insertable=false, updatable = false=false)
+    @ManyToOne
     @JoinColumn(name = "secondary_owner")
     private Owner secondaryOwner;
     @Column(name = "penalty_fee")
     private BigDecimal penaltyFee;
-    @Column(name = "status")
+    @Column(name = "status_")
     @Enumerated(EnumType.STRING)
     private AccountStatus status;
 
     public Account() {
     }
 
-    public Account(Integer id, Money balance, String secretKey, Owner ownerId, BigDecimal penaltyFee, AccountStatus status) {
-        this.setId(id);
-        this.setBalance(balance);
-        this.setSecretKey(secretKey);
-        this.setOwnerId(ownerId);
-        this.setPenaltyFee(penaltyFee);
-        this.setStatus(status);
+    public Account(Integer id, Money balance, String secretKey, Owner ownerId, Owner secondaryOwner, BigDecimal penaltyFee, AccountStatus status) {
+        this.id = id;
+        this.balance = balance;
+        this.secretKey = secretKey;
+        this.ownerId = ownerId;
+        this.secondaryOwner = secondaryOwner;
+        this.penaltyFee = penaltyFee;
+        this.status = status;
     }
 
     public Owner getOwnerId() {
@@ -93,6 +94,12 @@ public class Account {
         this.status = status;
     }
 
+    public Owner getSecondaryOwner() {
+        return secondaryOwner;
+    }
 
+    public void setSecondaryOwner(Owner secondaryOwner) {
+        this.secondaryOwner = secondaryOwner;
+    }
 }
 

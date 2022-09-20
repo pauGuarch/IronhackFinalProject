@@ -7,6 +7,7 @@ import javax.persistence.*;
 import java.math.BigDecimal;
 import java.sql.Date;
 @Entity
+@PrimaryKeyJoinColumn(name = "id")
 @DiscriminatorValue("1")
 public class Checking extends Account{
 
@@ -18,18 +19,21 @@ public class Checking extends Account{
     public Checking() {
     }
 
-    public Checking(BigDecimal minimumBalance, BigDecimal monthlyMantainanceFee, Date creationDate) {
-        this.setMinimumBalance(minimumBalance);
-        this.setMonthlyMantainanceFee(monthlyMantainanceFee);
-        this.setCreationDate(creationDate);
+    public Checking(Integer id, Money balance, String secretKey, Owner ownerId, Owner secondaryOwner, BigDecimal penaltyFee, AccountStatus status, BigDecimal minimumBalance, BigDecimal monthlyMaintenanceFee, Date creationDate) {
+        super(id, balance, secretKey, ownerId, secondaryOwner, penaltyFee, status);
+        this.minimumBalance = minimumBalance;
+        this.monthlyMaintenanceFee = monthlyMaintenanceFee;
+        this.creationDate = creationDate;
     }
 
-    public Checking(Integer id, Money balance, String secretKey, Owner primaryOwner, Owner secondaryOwner,
-                    BigDecimal penaltyFee, BigDecimal minimumBalance, BigDecimal monthlyMantainanceFee, Date creationDate, AccountStatus status) {
-        super(id, balance, secretKey, primaryOwner, penaltyFee, status);
-        this.setMinimumBalance(minimumBalance);
-        this.setMonthlyMantainanceFee(monthlyMantainanceFee);
-        this.setCreationDate(creationDate);
+    public Checking(BigDecimal balance) {
+        super();
+        setBalance(balance);
+    }
+
+    public void setBalance(BigDecimal balance) {
+        Money money = new Money(balance);
+        super.setBalance(money);
     }
 
     public BigDecimal getMinimumBalance() {
