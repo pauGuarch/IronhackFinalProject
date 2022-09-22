@@ -7,8 +7,8 @@ import java.math.BigDecimal;
 
 @Entity
 @Table(name = "account")
-@Inheritance(strategy= InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name="account_type", discriminatorType = DiscriminatorType.INTEGER)
+@Inheritance(strategy= InheritanceType.JOINED)
+//@DiscriminatorColumn(name="account_type", discriminatorType = DiscriminatorType.INTEGER)
 public class Account {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,11 +20,11 @@ public class Account {
     @Column(name = "secret_key")
     private String secretKey;
     @ManyToOne(cascade=CascadeType.PERSIST)
-    @JoinColumn(name = "owner_id")
-    private Owner ownerId;
+    @JoinColumn(name = "primary_owner")
+    private AccountHolder primaryOwner;
     @ManyToOne(cascade=CascadeType.PERSIST)
     @JoinColumn(name = "secondary_owner")
-    private Owner secondaryOwner;
+    private AccountHolder secondaryOwner;
     @Column(name = "penalty_fee")
     private BigDecimal penaltyFee;
     @Column(name = "status_")
@@ -34,22 +34,30 @@ public class Account {
     public Account() {
     }
 
-    public Account(Integer id, Money balance, String secretKey, Owner ownerId, Owner secondaryOwner, BigDecimal penaltyFee, AccountStatus status) {
+    public Account(Integer id, Money balance, String secretKey, AccountHolder primaryOwner, AccountHolder secondaryOwner, BigDecimal penaltyFee, AccountStatus status) {
         this.id = id;
         this.balance = balance;
         this.secretKey = secretKey;
-        this.ownerId = ownerId;
+        this.primaryOwner = primaryOwner;
         this.secondaryOwner = secondaryOwner;
         this.penaltyFee = penaltyFee;
         this.status = status;
     }
 
-    public Owner getOwnerId() {
-        return ownerId;
+    public AccountHolder getPrimaryOwner() {
+        return primaryOwner;
     }
 
-    public void setOwnerId(Owner ownerId) {
-        this.ownerId = ownerId;
+    public void setPrimaryOwner(AccountHolder primaryOwner) {
+        this.primaryOwner = primaryOwner;
+    }
+
+    public AccountHolder getSecondaryOwner() {
+        return secondaryOwner;
+    }
+
+    public void setSecondaryOwner(AccountHolder secondaryOwner) {
+        this.secondaryOwner = secondaryOwner;
     }
 
     public Integer getId() {
@@ -93,12 +101,5 @@ public class Account {
         this.status = status;
     }
 
-    public Owner getSecondaryOwner() {
-        return secondaryOwner;
-    }
-
-    public void setSecondaryOwner(Owner secondaryOwner) {
-        this.secondaryOwner = secondaryOwner;
-    }
 }
 

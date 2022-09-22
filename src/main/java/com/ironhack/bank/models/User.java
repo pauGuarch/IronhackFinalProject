@@ -6,10 +6,11 @@ import com.ironhack.bank.enums.Roles;
 import javax.persistence.*;
 
 @Entity
+@Inheritance(strategy= InheritanceType.JOINED)
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
+    @Column(name = "user_id")
     private Integer id;
     private String name;
     private String userName;

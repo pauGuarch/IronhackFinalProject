@@ -13,9 +13,9 @@ public class Admin extends User{
     public Admin() {
     }
 
-    public Admin(Integer id, String name, String userName, String password, Roles role, String level) {
-        super(id, name, userName, password, role);
-        this.level = level;
+    public Admin(Integer id, String name, String userName, String password, String level) {
+        super(id, name, userName, password, Roles.ADMIN);
+        this.setLevel(level);
     }
 
     public String getLevel() {

@@ -8,7 +8,7 @@ import java.math.BigDecimal;
 import java.sql.Date;
 @Entity
 //@PrimaryKeyJoinColumn(name = "id")
-@DiscriminatorValue("1")
+//@DiscriminatorValue("1")
 public class Checking extends Account{
 
     private BigDecimal minimumBalance;
@@ -20,8 +20,8 @@ public class Checking extends Account{
     public Checking() {
     }
 
-    public Checking(Integer id, Money balance, String secretKey, Owner ownerId, Owner secondaryOwner, BigDecimal penaltyFee, AccountStatus status, BigDecimal minimumBalance, BigDecimal monthlyMaintenanceFee, Date creationDate) {
-        super(id, balance, secretKey, ownerId, secondaryOwner, penaltyFee, status);
+    public Checking(Integer id, Money balance, String secretKey, AccountHolder primaryOwner, AccountHolder secondaryOwner, BigDecimal penaltyFee, AccountStatus status, BigDecimal minimumBalance, BigDecimal monthlyMaintenanceFee, Date creationDate) {
+        super(id, balance, secretKey, primaryOwner, secondaryOwner, penaltyFee, status);
         this.minimumBalance = minimumBalance;
         this.monthlyMaintenanceFee = monthlyMaintenanceFee;
         this.creationDate = creationDate;

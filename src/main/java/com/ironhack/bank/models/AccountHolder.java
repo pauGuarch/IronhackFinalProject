@@ -16,9 +16,9 @@ public class AccountHolder extends User{
     public AccountHolder() {
     }
 
-    public AccountHolder(Integer id, String name, String userName, String password, Roles role, Date dateOfBirth) {
-        super(id, name, userName, password, role);
-        this.dateOfBirth = dateOfBirth;
+    public AccountHolder(Integer id, String name, String userName, String password, Date dateOfBirth) {
+        super(id, name, userName, password, Roles.USER);
+        this.setDateOfBirth(dateOfBirth);
     }
 
     public Date getDateOfBirth() {

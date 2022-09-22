@@ -23,8 +23,8 @@ public class Savings extends Account{
     public Savings() {
     }
 
-    public Savings(Integer id, Money balance, String secretKey, Owner ownerId, Owner secondaryOwner, BigDecimal penaltyFee, AccountStatus status, BigDecimal minimumBalance, Date creationDate, BigDecimal interestRate) {
-        super(id, balance, secretKey, ownerId, secondaryOwner, penaltyFee, status);
+    public Savings(Integer id, Money balance, String secretKey, AccountHolder primaryOwner, AccountHolder secondaryOwner, BigDecimal penaltyFee, AccountStatus status, BigDecimal minimumBalance, Date creationDate, BigDecimal interestRate) {
+        super(id, balance, secretKey, primaryOwner, secondaryOwner, penaltyFee, status);
         this.minimumBalance = minimumBalance;
         this.creationDate = creationDate;
         this.interestRate = interestRate;

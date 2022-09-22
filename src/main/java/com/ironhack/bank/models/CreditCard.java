@@ -21,8 +21,8 @@ public class CreditCard extends Account{
     public CreditCard() {
     }
 
-    public CreditCard(Integer id, Money balance, String secretKey, Owner ownerId, Owner secondaryOwner, BigDecimal penaltyFee, AccountStatus status, BigDecimal creditLimit, BigDecimal interestRate) {
-        super(id, balance, secretKey, ownerId, secondaryOwner, penaltyFee, status);
+    public CreditCard(Integer id, Money balance, String secretKey, AccountHolder primaryOwner, AccountHolder secondaryOwner, BigDecimal penaltyFee, AccountStatus status, BigDecimal creditLimit, BigDecimal interestRate) {
+        super(id, balance, secretKey, primaryOwner, secondaryOwner, penaltyFee, status);
         this.creditLimit = creditLimit;
         this.interestRate = interestRate;
     }
