@@ -1,41 +1,40 @@
 package com.ironhack.bank.controllers.impl;
 
 import com.ironhack.bank.controllers.interfaces.CheckingController;
-import com.ironhack.bank.models.Account;
+import com.ironhack.bank.controllers.interfaces.OwnerController;
 import com.ironhack.bank.models.Checking;
+import com.ironhack.bank.models.Owner;
 import com.ironhack.bank.services.interfaces.AccountService;
 import com.ironhack.bank.services.interfaces.CheckingService;
+import com.ironhack.bank.services.interfaces.OwnerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-public class CheckingControllerImpl implements CheckingController {
+public class OwnerControllerImpl implements OwnerController {
     @Autowired
-    private CheckingService checkingService;
+    private OwnerService ownerService;
 
-    @Autowired
-    private AccountService accountService;
-
-    @GetMapping("/checking/{checkingId}")
-    public Checking getCheckingById(@PathVariable(name = "checkingId") Integer id) {
+    @GetMapping("/owner/{ownerId}")
+    public Owner getOwnerById(@PathVariable(name = "ownerId") Integer id) {
         //System.out.println(authentication.getName());
         //System.out.println(authentication.getCredentials());
         System.out.println("entro");
-        return checkingService.getCheckingById(id);
+        return ownerService.getOwnerById(id);
     }
 
-    @PostMapping(value="/checking", consumes = "application/json", produces = "application/json")
+    @PostMapping(value="/owner", consumes = "application/json", produces = "application/json")
     @ResponseStatus(HttpStatus.CREATED)
-    public Checking saveChecking(@RequestBody Checking checking) {
+    public Owner saveOwner(@RequestBody Owner owner) {
         System.out.println("entro controller");
-        return checkingService.saveChecking(checking);
+        return ownerService.saveOwner(owner);
     }
 
-    @DeleteMapping("/checking/{checkingId}")
+    @DeleteMapping("/owner/{ownerId}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void deleteChecking(@PathVariable Integer checkingId) {
+    public void deleteOwner(@PathVariable Integer ownerId) {
         System.out.println("entro controller");
-        checkingService.deleteChecking(checkingId);
+        ownerService.deleteOwner(ownerId);
     }
 }

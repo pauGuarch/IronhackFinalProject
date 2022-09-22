@@ -7,11 +7,12 @@ import javax.persistence.*;
 import java.math.BigDecimal;
 import java.sql.Date;
 @Entity
-@PrimaryKeyJoinColumn(name = "id")
+//@PrimaryKeyJoinColumn(name = "id")
 @DiscriminatorValue("1")
 public class Checking extends Account{
 
     private BigDecimal minimumBalance;
+    @Column(name = "monthly_maintenance_fee")
     private BigDecimal monthlyMaintenanceFee;
     @Column(name = "creation_date")
     private Date creationDate;
@@ -42,14 +43,6 @@ public class Checking extends Account{
 
     public void setMinimumBalance(BigDecimal minimumBalance) {
         this.minimumBalance = minimumBalance;
-    }
-
-    public BigDecimal getMonthlyMantainanceFee() {
-        return monthlyMaintenanceFee;
-    }
-
-    public void setMonthlyMantainanceFee(BigDecimal monthlyMantainanceFee) {
-        this.monthlyMaintenanceFee = monthlyMaintenanceFee;
     }
 
     public Date getCreationDate() {

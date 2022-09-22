@@ -10,7 +10,7 @@ import javax.persistence.PrimaryKeyJoinColumn;
 import java.math.BigDecimal;
 import java.util.Date;
 @Entity
-@PrimaryKeyJoinColumn(name = "id")
+//@PrimaryKeyJoinColumn(name = "id")
 @DiscriminatorValue("3")
 public class Savings extends Account{
     @Column(name = "minimun_balance")

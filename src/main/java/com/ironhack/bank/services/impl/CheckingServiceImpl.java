@@ -32,15 +32,14 @@ public class CheckingServiceImpl implements CheckingService {
     @Override
     public Checking saveChecking(Checking checking) {
         if (checking.getId() != null && checkingRepository.existsById(checking.getId())) {
-            throw new ResponseStatusException(HttpStatus.NOT_ACCEPTABLE, "This id: " + checking.getId() + " already exists for another Student");
+            throw new ResponseStatusException(HttpStatus.NOT_ACCEPTABLE, "This id: " + checking.getId() + " already exists for another checking");
         }
         return checkingRepository.save(checking);
     }
 
     @Override
     public void deleteChecking(Integer checkingId) {
-//        Checking checking = getCheckingById(checkingId);
-//
-//        checkingRepository.delete(checking);
+        Checking checking = getCheckingById(checkingId);
+        checkingRepository.delete(checking);
     }
 }

@@ -10,7 +10,7 @@ import javax.persistence.PrimaryKeyJoinColumn;
 import java.math.BigDecimal;
 
 @Entity
-@PrimaryKeyJoinColumn(name = "id")
+//@PrimaryKeyJoinColumn(name = "id")
 @DiscriminatorValue("2")
 public class CreditCard extends Account{
     @Column(name = "credit_limit")

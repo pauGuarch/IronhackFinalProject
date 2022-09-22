@@ -1,5 +1,5 @@
 package com.ironhack.bank.models;
-/*
+
 import javax.persistence.*;
 import java.math.BigDecimal;
 @Entity
@@ -60,4 +60,4 @@ public class Transaction {
         this.amount = amount;
     }
 
-}*/
+}

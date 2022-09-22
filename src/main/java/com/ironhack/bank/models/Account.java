@@ -19,11 +19,10 @@ public class Account {
     private Money balance;
     @Column(name = "secret_key")
     private String secretKey;
-    @ManyToOne
-    @JoinColumn(name = "primary_owner")
+    @ManyToOne(cascade=CascadeType.PERSIST)
+    @JoinColumn(name = "owner_id")
     private Owner ownerId;
-    //@JoinColumn(name = "owner_id", insertable=false, updatable = false=false)
-    @ManyToOne
+    @ManyToOne(cascade=CascadeType.PERSIST)
     @JoinColumn(name = "secondary_owner")
     private Owner secondaryOwner;
     @Column(name = "penalty_fee")

@@ -12,7 +12,7 @@ import javax.persistence.PrimaryKeyJoinColumn;
 import java.math.BigDecimal;
 import java.sql.Date;
 @Entity
-@PrimaryKeyJoinColumn(name = "id")
+//@PrimaryKeyJoinColumn(name = "id")
 @DiscriminatorValue("4")
 public class StudentChecking extends Account{
     @Column(name = "creation_date")

@@ -6,8 +6,9 @@ import javax.persistence.*;
 @Table(name = "owner")
 public class Owner {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "owner_id")
-    private Integer ownerId;
+    private Integer Id;
     @Column(name = "full_name")
     private String fullName;
     @Column(name = "document_no")
@@ -17,7 +18,7 @@ public class Owner {
     }
 
     public Owner(Integer id, String fullName, String documentNo) {
-        this.setOwnerId(id);
+        this.setId(id);
         this.setFullName(fullName);
         this.setDocumentNo(documentNo);
     }
@@ -38,11 +39,11 @@ public class Owner {
         this.documentNo = documentNo;
     }
 
-    public Integer getOwnerId() {
-        return ownerId;
+    public Integer getId() {
+        return Id;
     }
 
-    public void setOwnerId(Integer ownerId) {
-        this.ownerId = ownerId;
+    public void setId(Integer id) {
+        this.Id = id;
     }
 }
