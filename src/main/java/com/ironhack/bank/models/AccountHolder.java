@@ -3,8 +3,7 @@ package com.ironhack.bank.models;
 import com.ironhack.bank.classes.Money;
 import com.ironhack.bank.enums.Roles;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
+import javax.persistence.*;
 import java.math.BigDecimal;
 import java.sql.Date;
 
@@ -12,6 +11,9 @@ import java.sql.Date;
 public class AccountHolder extends User{
     @Column(name = "date_of_birth")
     private Date dateOfBirth;
+    @ManyToOne(cascade=CascadeType.PERSIST)
+    @JoinColumn(name = "address")
+    private Address address;
 
     public AccountHolder() {
     }

@@ -13,7 +13,7 @@ import java.util.Date;
 //@PrimaryKeyJoinColumn(name = "id")
 @DiscriminatorValue("3")
 public class Savings extends Account{
-    @Column(name = "minimun_balance")
+    @Column(name = "minimum_balance")
     private BigDecimal minimumBalance;
     @Column(name = "creation_date")
     private Date creationDate;
@@ -23,11 +23,13 @@ public class Savings extends Account{
     public Savings() {
     }
 
-    public Savings(Integer id, Money balance, String secretKey, AccountHolder primaryOwner, AccountHolder secondaryOwner, BigDecimal penaltyFee, AccountStatus status, BigDecimal minimumBalance, Date creationDate, BigDecimal interestRate) {
+
+
+    public Savings(Integer id, Money balance, String secretKey, AccountHolder primaryOwner, AccountHolder secondaryOwner, BigDecimal penaltyFee, AccountStatus status, BigDecimal minimumBalance, Date creationDate) {
         super(id, balance, secretKey, primaryOwner, secondaryOwner, penaltyFee, status);
-        this.minimumBalance = minimumBalance;
-        this.creationDate = creationDate;
-        this.interestRate = interestRate;
+        this.setMinimumBalance(minimumBalance);
+        this.setCreationDate(creationDate);
+        this.setInterestRate(BigDecimal.valueOf(0.0025));
     }
 
     public BigDecimal getMinimumBalance() {
@@ -51,7 +53,11 @@ public class Savings extends Account{
     }
 
     public void setInterestRate(BigDecimal interestRate) {
-        this.interestRate = interestRate;
+        if (interestRate.compareTo(BigDecimal.valueOf(0.0025))==-1 ||  interestRate.compareTo(BigDecimal.valueOf(0.5))==1){
+            this.interestRate=BigDecimal.valueOf(0.0025);
+        }else{
+            this.interestRate = interestRate;
+        }
     }
 
 }

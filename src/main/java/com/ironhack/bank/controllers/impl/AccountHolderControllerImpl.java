@@ -17,6 +17,7 @@ public class AccountHolderControllerImpl implements AccountHolderController {
         //System.out.println(authentication.getName());
         //System.out.println(authentication.getCredentials());
         System.out.println("entro");
+        //pasar a getAccountHolder authentication object y comprobar dentro si concuerdan user y accountholder de la cuenta
         return accountHolderService.getAccountHolderById(id);
     }
 

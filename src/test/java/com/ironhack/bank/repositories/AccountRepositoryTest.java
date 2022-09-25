@@ -29,5 +29,4 @@ class AccountRepositoryTest {
         }
         assertEquals(BigDecimal.valueOf(500), result.setScale(0));
     }
-
 }

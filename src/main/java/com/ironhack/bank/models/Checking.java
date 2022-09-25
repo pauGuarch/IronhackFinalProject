@@ -11,6 +11,7 @@ import java.sql.Date;
 //@DiscriminatorValue("1")
 public class Checking extends Account{
 
+    @Column(name = "minimum_balance")
     private BigDecimal minimumBalance;
     @Column(name = "monthly_maintenance_fee")
     private BigDecimal monthlyMaintenanceFee;
