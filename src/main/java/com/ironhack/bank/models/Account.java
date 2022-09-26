@@ -1,5 +1,6 @@
 package com.ironhack.bank.models;
 
+import com.ironhack.bank.classes.DefaultValues;
 import com.ironhack.bank.classes.Money;
 import com.ironhack.bank.enums.AccountStatus;
 import javax.persistence.*;
@@ -34,12 +35,12 @@ public class Account {
     public Account() {
     }
 
-    public Account(Money balance, String secretKey, AccountHolder primaryOwner, AccountHolder secondaryOwner, BigDecimal penaltyFee, AccountStatus status) {
+    public Account(Money balance, String secretKey, AccountHolder primaryOwner, AccountHolder secondaryOwner, AccountStatus status) {
         this.setBalance(balance);
         this.setSecretKey(secretKey);
         this.setPrimaryOwner(primaryOwner);
         this.setSecondaryOwner(secondaryOwner);
-        this.setPenaltyFee(penaltyFee);
+        this.setPenaltyFee(BigDecimal.valueOf(40.00));
         this.setStatus(status);
     }
 

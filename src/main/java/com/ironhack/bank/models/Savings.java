@@ -27,8 +27,8 @@ public class Savings extends Account{
 
 
 
-    public Savings(Money balance, String secretKey, AccountHolder primaryOwner, AccountHolder secondaryOwner, BigDecimal penaltyFee, AccountStatus status, BigDecimal minimumBalance, Date creationDate) {
-        super(balance, secretKey, primaryOwner, secondaryOwner, penaltyFee, status);
+    public Savings(Money balance, String secretKey, AccountHolder primaryOwner, AccountHolder secondaryOwner, AccountStatus status, BigDecimal minimumBalance, Date creationDate) {
+        super(balance, secretKey, primaryOwner, secondaryOwner, status);
         this.setMinimumBalance(minimumBalance);
         this.setCreationDate(creationDate);
         this.setInterestRate(BigDecimal.valueOf(0.0025));

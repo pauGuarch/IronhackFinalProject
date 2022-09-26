@@ -27,7 +27,7 @@ public class CheckingControllerImpl implements CheckingController {
 
     @PostMapping(value="/checking")
     @ResponseStatus(HttpStatus.CREATED)
-    public Checking saveChecking(@RequestBody Checking checking) {
+    public Account saveChecking(@RequestBody Checking checking) {
         System.out.println("entro controller");
         return checkingService.saveChecking(checking);
     }

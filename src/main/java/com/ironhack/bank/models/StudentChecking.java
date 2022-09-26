@@ -11,6 +11,8 @@ import javax.persistence.Entity;
 import javax.persistence.PrimaryKeyJoinColumn;
 import java.math.BigDecimal;
 import java.sql.Date;
+import java.util.Calendar;
+
 @Entity
 //@PrimaryKeyJoinColumn(name = "id")
 @DiscriminatorValue("4")
@@ -21,9 +23,9 @@ public class StudentChecking extends Account{
     public StudentChecking() {
     }
 
-    public StudentChecking(Money balance, String secretKey, AccountHolder primaryOwner, AccountHolder secondaryOwner, BigDecimal penaltyFee, AccountStatus status, Date creationDate) {
-        super(balance, secretKey, primaryOwner, secondaryOwner, penaltyFee, status);
-        this.creationDate = creationDate;
+    public StudentChecking(Money balance, String secretKey, AccountHolder primaryOwner, AccountHolder secondaryOwner, AccountStatus status, Date creationDate) {
+        super(balance, secretKey, primaryOwner, secondaryOwner, status);
+        this.setCreationDate(new java.sql.Date(Calendar.getInstance().getTime().getTime()));
     }
 
     public Date getCreationDate() {

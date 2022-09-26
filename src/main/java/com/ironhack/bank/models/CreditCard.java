@@ -23,8 +23,8 @@ public class CreditCard extends Account{
     public CreditCard() {
     }
 
-    public CreditCard(Money balance, String secretKey, AccountHolder primaryOwner, AccountHolder secondaryOwner, BigDecimal penaltyFee, AccountStatus status, BigDecimal creditLimit, BigDecimal interestRate) {
-        super(balance, secretKey, primaryOwner, secondaryOwner, penaltyFee, status);
+    public CreditCard(Money balance, String secretKey, AccountHolder primaryOwner, AccountHolder secondaryOwner, AccountStatus status, BigDecimal creditLimit, BigDecimal interestRate) {
+        super(balance, secretKey, primaryOwner, secondaryOwner, status);
         this.setCreditLimit(creditLimit);
         this.setInterestRate(interestRate);
     }

@@ -28,19 +28,12 @@ public class Checking extends Account{
     }
 
     public Checking(Money balance, String secretKey, AccountHolder primaryOwner, AccountHolder secondaryOwner,
-                    BigDecimal penaltyFee, AccountStatus status, BigDecimal monthlyMaintenanceFee) {
-        super(balance, secretKey, primaryOwner, secondaryOwner, penaltyFee, status);
+                    AccountStatus status, BigDecimal monthlyMaintenanceFee) {
+        super(balance, secretKey, primaryOwner, secondaryOwner, status);
         //this.setMinimumBalance(defaultMinimumBalance);
         this.setMonthlyMaintenanceFee(monthlyMaintenanceFee);
         this.setCreationDate(new java.sql.Date(Calendar.getInstance().getTime().getTime()));
     }
-
-    /*public Checking(BigDecimal monthlyMaintenanceFee) {
-        this.setMinimumBalance(defaultMinimumBalance);
-        this.setMonthlyMaintenanceFee(monthlyMaintenanceFee);
-        this.setCreationDate(new java.sql.Date(Calendar.getInstance().getTime().getTime()));
-    }*/
-
 
     public BigDecimal getMinimumBalance() {
         return minimumBalance;
