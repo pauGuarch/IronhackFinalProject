@@ -14,7 +14,7 @@ public class Admin extends User{
     }
 
     public Admin(Integer id, String name, String userName, String password, String level) {
-        super(id, name, userName, password, Roles.ADMIN);
+        super(name, userName, password, Roles.ADMIN);
         this.setLevel(level);
     }
 

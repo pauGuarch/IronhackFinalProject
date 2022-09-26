@@ -29,7 +29,7 @@ public class Transaction {
     public Transaction() {
     }
 
-    public Transaction(Integer id, Account originAccount, Account destinyAccount, BigDecimal amount) {
+    public Transaction(Account originAccount, Account destinyAccount, BigDecimal amount) {
         this.setId(id);
         this.setOriginAccount(originAccount);
         this.setDestinyAccount(destinyAccount);

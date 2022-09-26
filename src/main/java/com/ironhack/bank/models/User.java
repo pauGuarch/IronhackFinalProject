@@ -25,8 +25,7 @@ public class User {
     public User() {
     }
 
-    public User(Integer id, String name, String userName, String password, Roles role) {
-        this.setId(id);
+    public User(String name, String userName, String password, Roles role) {
         this.setName(name);
         this.setUserName(userName);
         this.setPassword(password);

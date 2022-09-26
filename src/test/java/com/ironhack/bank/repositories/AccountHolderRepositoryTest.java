@@ -23,9 +23,9 @@ class AccountHolderRepositoryTest {
 
     @BeforeEach
     void setUp() {
-        accountHolder = accountHolderRepository.save(new AccountHolder(1, "Peter Jackson", "peter_jackson", "qwerty", Date.valueOf("2001-09-09")));
-        accountHolder2 = accountHolderRepository.save(new AccountHolder(2, "Lina Morgan", "lina_morgan", "12345", Date.valueOf("2011-09-09")));
-        accountHolder3 = accountHolderRepository.save(new AccountHolder(3, "Steve O", "steve_o", "asdfg", Date.valueOf("1988-09-09")));
+        accountHolder = accountHolderRepository.save(new AccountHolder("Peter Jackson", "peter_jackson", "qwerty", Date.valueOf("2001-09-09")));
+        accountHolder2 = accountHolderRepository.save(new AccountHolder("Lina Morgan", "lina_morgan", "12345", Date.valueOf("2011-09-09")));
+        accountHolder3 = accountHolderRepository.save(new AccountHolder("Steve O", "steve_o", "asdfg", Date.valueOf("1988-09-09")));
     }
 
     @AfterEach
@@ -38,6 +38,11 @@ class AccountHolderRepositoryTest {
         Optional<AccountHolder> accountHolderOptional = accountHolderRepository.findById(accountHolder.getId());
         assertEquals("Peter Jackson", accountHolderOptional.get().getName());
     }
-
+/*
+    @Test
+    public void deleteById() {
+        accountHolderRepository.deleteById(accountHolder2.getId());
+        assert(, accountHolderRepository.findById(accountHolder2.getId()));
+    }*/
 
 }

@@ -83,7 +83,6 @@ public class Account {
         this.secretKey = secretKey;
     }
 
-
     public BigDecimal getPenaltyFee() {
         return penaltyFee;
     }

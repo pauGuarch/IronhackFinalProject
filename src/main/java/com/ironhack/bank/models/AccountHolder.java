@@ -18,8 +18,8 @@ public class AccountHolder extends User{
     public AccountHolder() {
     }
 
-    public AccountHolder(Integer id, String name, String userName, String password, Date dateOfBirth) {
-        super(id, name, userName, password, Roles.USER);
+    public AccountHolder(String name, String userName, String password, Date dateOfBirth) {
+        super(name, userName, password, Roles.USER);
         this.setDateOfBirth(dateOfBirth);
     }
 

@@ -33,9 +33,9 @@ public class CheckingServiceImpl implements CheckingService {
 
     @Override
     public Checking saveChecking(Checking checking) {
-        if (checking.getId() != null && checkingRepository.existsById(checking.getId())) {
+        /*if (checking.getId() != null && checkingRepository.existsById(checking.getId())) {
             throw new ResponseStatusException(HttpStatus.NOT_ACCEPTABLE, "This id: " + checking.getId() + " already exists for another checking");
-        }
+        }*/
         //Money balance, String secretKey, AccountHolder primaryOwner, AccountHolder secondaryOwner, BigDecimal penaltyFee, AccountStatus status
         /*Account account = new Account(checking.getBalance(), checking.getSecretKey(), checking.getPrimaryOwner(), checking.getSecondaryOwner(), checking.getPenaltyFee(), checking.getStatus());
         accountRepository.save(account);

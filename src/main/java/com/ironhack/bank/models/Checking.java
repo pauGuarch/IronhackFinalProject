@@ -14,7 +14,7 @@ import java.util.Currency;
 @PrimaryKeyJoinColumn(name = "id")
 //@DiscriminatorValue("1")
 public class Checking extends Account{
-    private static final BigDecimal defaultMinimumBalance = BigDecimal.valueOf(250);
+    //private static final BigDecimal defaultMinimumBalance = BigDecimal.valueOf(250);
     //@Digits(integer=3, fraction=2)
     @Column(name = "minimum_balance")
     private BigDecimal minimumBalance;
@@ -30,23 +30,17 @@ public class Checking extends Account{
     public Checking(Money balance, String secretKey, AccountHolder primaryOwner, AccountHolder secondaryOwner,
                     BigDecimal penaltyFee, AccountStatus status, BigDecimal monthlyMaintenanceFee) {
         super(balance, secretKey, primaryOwner, secondaryOwner, penaltyFee, status);
-        this.setMinimumBalance(defaultMinimumBalance);
+        //this.setMinimumBalance(defaultMinimumBalance);
         this.setMonthlyMaintenanceFee(monthlyMaintenanceFee);
         this.setCreationDate(new java.sql.Date(Calendar.getInstance().getTime().getTime()));
     }
 
-    public Checking(BigDecimal monthlyMaintenanceFee) {
+    /*public Checking(BigDecimal monthlyMaintenanceFee) {
         this.setMinimumBalance(defaultMinimumBalance);
         this.setMonthlyMaintenanceFee(monthlyMaintenanceFee);
         this.setCreationDate(new java.sql.Date(Calendar.getInstance().getTime().getTime()));
-    }
+    }*/
 
-
-
-    public void setBalance(BigDecimal balance) {
-        Money money = new Money(balance);
-        super.setBalance(money);
-    }
 
     public BigDecimal getMinimumBalance() {
         return minimumBalance;

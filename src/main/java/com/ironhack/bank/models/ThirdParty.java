@@ -14,7 +14,7 @@ public class ThirdParty extends User{
     }
 
     public ThirdParty(Integer id, String name, String userName, String password, String secretKey) {
-        super(id, name, userName, password, Roles.THIRDPARTY);
+        super(name, userName, password, Roles.THIRDPARTY);
         this.setSecretKey(secretKey);
     }
 
