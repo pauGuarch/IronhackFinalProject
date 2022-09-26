@@ -1,5 +1,6 @@
 package com.ironhack.bank.controllers.interfaces;
 
+import com.ironhack.bank.classes.Money;
 import com.ironhack.bank.models.Account;
 
 public interface AccountController {
@@ -7,4 +8,5 @@ public interface AccountController {
     Account getAccountById(Integer id);
     Account saveAccount(Account account);
     void deleteAccount(Integer accountId);
+    //Account updateBalance(Integer id, Money balance);
 }

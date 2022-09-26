@@ -1,8 +1,6 @@
 package com.ironhack.bank.repositories;
 
-import com.ironhack.bank.models.Account;
 import com.ironhack.bank.models.Checking;
-import org.hibernate.annotations.Check;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

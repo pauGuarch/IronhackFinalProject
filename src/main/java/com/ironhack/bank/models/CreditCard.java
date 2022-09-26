@@ -23,8 +23,8 @@ public class CreditCard extends Account{
 
     public CreditCard(Integer id, Money balance, String secretKey, AccountHolder primaryOwner, AccountHolder secondaryOwner, BigDecimal penaltyFee, AccountStatus status, BigDecimal creditLimit, BigDecimal interestRate) {
         super(id, balance, secretKey, primaryOwner, secondaryOwner, penaltyFee, status);
-        this.creditLimit = creditLimit;
-        this.interestRate = interestRate;
+        this.setCreditLimit(creditLimit);
+        this.setInterestRate(interestRate);
     }
 
     public BigDecimal getCreditLimit() {
@@ -32,7 +32,11 @@ public class CreditCard extends Account{
     }
 
     public void setCreditLimit(BigDecimal creditLimit) {
-        this.creditLimit = creditLimit;
+        if (creditLimit.compareTo(BigDecimal.valueOf(100.00)) < 0 || creditLimit.compareTo(BigDecimal.valueOf(100000.00)) > 0){
+            this.creditLimit=BigDecimal.valueOf(100.00);
+        }else{
+            this.creditLimit = creditLimit;
+        }
     }
 
     public BigDecimal getInterestRate() {
@@ -40,7 +44,11 @@ public class CreditCard extends Account{
     }
 
     public void setInterestRate(BigDecimal interestRate) {
-        this.interestRate = interestRate;
+        if (interestRate.compareTo(BigDecimal.valueOf(0.1)) < 0 || interestRate.compareTo(BigDecimal.valueOf(0.2)) > 0){
+            this.interestRate=BigDecimal.valueOf(0.2);
+        }else{
+            this.interestRate = interestRate;
+        }
     }
 
 }

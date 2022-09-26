@@ -1,11 +1,14 @@
 package com.ironhack.bank.controllers.impl;
 
+import com.ironhack.bank.classes.Money;
 import com.ironhack.bank.controllers.interfaces.AccountController;
 import com.ironhack.bank.models.Account;
 import com.ironhack.bank.services.interfaces.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+
+import java.math.BigDecimal;
 
 @RestController
 public class AccountControllerImpl implements AccountController {
@@ -26,6 +29,12 @@ public class AccountControllerImpl implements AccountController {
     public Account saveAccount( @RequestBody Account account) {
         return accountService.saveAccount(account);
     }
+
+    /*@PatchMapping("/account/{studentId}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void updateAccountAmount(@PathVariable BigDecimal amount, @RequestBody Money money) {
+        accountService.(studentId, spellList);
+    }*/
 
     @DeleteMapping("/account/{accountId}")
     @ResponseStatus(HttpStatus.NO_CONTENT)

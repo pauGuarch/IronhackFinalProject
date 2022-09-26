@@ -1,6 +1,5 @@
 package com.ironhack.bank.services.impl;
 
-import com.ironhack.bank.models.Account;
 import com.ironhack.bank.models.Checking;
 import com.ironhack.bank.repositories.AccountRepository;
 import com.ironhack.bank.repositories.CheckingRepository;

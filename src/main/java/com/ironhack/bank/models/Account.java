@@ -3,6 +3,7 @@ package com.ironhack.bank.models;
 import com.ironhack.bank.classes.Money;
 import com.ironhack.bank.enums.AccountStatus;
 import javax.persistence.*;
+import java.lang.annotation.Target;
 import java.math.BigDecimal;
 
 @Entity
@@ -15,6 +16,7 @@ public class Account {
     @Column(name = "id")
     private Integer id;
     @Embedded
+
     @Column(name = "balance")
     private Money balance;
     @Column(name = "secret_key")
@@ -36,12 +38,12 @@ public class Account {
 
     public Account(Integer id, Money balance, String secretKey, AccountHolder primaryOwner, AccountHolder secondaryOwner, BigDecimal penaltyFee, AccountStatus status) {
         this.id = id;
-        this.balance = balance;
-        this.secretKey = secretKey;
-        this.primaryOwner = primaryOwner;
-        this.secondaryOwner = secondaryOwner;
-        this.penaltyFee = penaltyFee;
-        this.status = status;
+        this.setBalance(balance);
+        this.setSecretKey(secretKey);
+        this.setPrimaryOwner(primaryOwner);
+        this.setSecondaryOwner(secondaryOwner);
+        this.setPenaltyFee(penaltyFee);
+        this.setStatus(status);
     }
 
     public AccountHolder getPrimaryOwner() {

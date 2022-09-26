@@ -37,7 +37,11 @@ public class Savings extends Account{
     }
 
     public void setMinimumBalance(BigDecimal minimumBalance) {
-        this.minimumBalance = minimumBalance;
+        if (minimumBalance.compareTo(BigDecimal.valueOf(100.00)) < 0 || minimumBalance.compareTo(BigDecimal.valueOf(1000.00)) > 0){
+            this.minimumBalance=BigDecimal.valueOf(1000.00);
+        }else{
+            this.minimumBalance = minimumBalance;
+        }
     }
 
     public Date getCreationDate() {
@@ -53,7 +57,7 @@ public class Savings extends Account{
     }
 
     public void setInterestRate(BigDecimal interestRate) {
-        if (interestRate.compareTo(BigDecimal.valueOf(0.0025))==-1 ||  interestRate.compareTo(BigDecimal.valueOf(0.5))==1){
+        if (interestRate.compareTo(BigDecimal.valueOf(0.0025)) < 0 || interestRate.compareTo(BigDecimal.valueOf(0.5)) > 0){
             this.interestRate=BigDecimal.valueOf(0.0025);
         }else{
             this.interestRate = interestRate;

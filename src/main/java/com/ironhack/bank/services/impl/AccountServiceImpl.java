@@ -1,5 +1,6 @@
 package com.ironhack.bank.services.impl;
 
+import com.ironhack.bank.classes.Money;
 import com.ironhack.bank.models.Account;
 import com.ironhack.bank.repositories.AccountRepository;
 import com.ironhack.bank.services.interfaces.AccountService;
@@ -8,6 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.math.BigDecimal;
 import java.util.Optional;
 @Service
 public class AccountServiceImpl implements AccountService {
@@ -38,5 +40,21 @@ public class AccountServiceImpl implements AccountService {
         Account student = getAccountById(studentId);
 
         accountRepository.delete(student);
+    }
+
+    public void subtractAccountBalance(Integer accountId, BigDecimal subtractAmount) {
+        Account account = getAccountById(accountId);
+        Money balance = account.getBalance();
+        balance.decreaseAmount(subtractAmount);
+        account.setBalance(balance);
+        accountRepository.save(account);
+    }
+
+    public void increaseAccountBalance(Integer accountId, BigDecimal increaseAmount) {
+        Account account = getAccountById(accountId);
+        Money balance = account.getBalance();
+        balance.increaseAmount(increaseAmount);
+        account.setBalance(balance);
+        accountRepository.save(account);
     }
 }

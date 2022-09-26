@@ -1,5 +1,7 @@
 package com.ironhack.bank.classes;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import javax.persistence.Embeddable;
 import javax.persistence.Entity;
 import javax.persistence.Table;
@@ -7,16 +9,16 @@ import java.math.RoundingMode;
 import java.math.BigDecimal;
 import java.util.Currency;
 
-
+//@Entity
 @Embeddable
-@Table(name="money")
+//@Table(name="money")
 public class Money {
 
     private static final Currency USD = Currency.getInstance("USD");
     private static final RoundingMode DEFAULT_ROUNDING = RoundingMode.HALF_EVEN;
 
-    private Currency currency;
-    private BigDecimal amount;
+    public Currency currency;
+    public BigDecimal amount;
 
     public Money() {
     }

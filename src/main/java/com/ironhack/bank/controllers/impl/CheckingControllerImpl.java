@@ -25,7 +25,7 @@ public class CheckingControllerImpl implements CheckingController {
         return checkingService.getCheckingById(id);
     }
 
-    @PostMapping(value="/checking", consumes = "application/json", produces = "application/json")
+    @PostMapping(value="/checking")
     @ResponseStatus(HttpStatus.CREATED)
     public Checking saveChecking(@RequestBody Checking checking) {
         System.out.println("entro controller");

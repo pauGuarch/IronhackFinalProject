@@ -6,11 +6,14 @@ import com.ironhack.bank.enums.AccountStatus;
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.sql.Date;
+import java.util.Calendar;
+import java.util.Currency;
+
 @Entity
 //@PrimaryKeyJoinColumn(name = "id")
 //@DiscriminatorValue("1")
 public class Checking extends Account{
-
+    private static final BigDecimal defaultMinimumBalance = BigDecimal.valueOf(250);
     @Column(name = "minimum_balance")
     private BigDecimal minimumBalance;
     @Column(name = "monthly_maintenance_fee")
@@ -21,11 +24,12 @@ public class Checking extends Account{
     public Checking() {
     }
 
-    public Checking(Integer id, Money balance, String secretKey, AccountHolder primaryOwner, AccountHolder secondaryOwner, BigDecimal penaltyFee, AccountStatus status, BigDecimal minimumBalance, BigDecimal monthlyMaintenanceFee, Date creationDate) {
+    public Checking(Integer id, Money balance, String secretKey, AccountHolder primaryOwner, AccountHolder secondaryOwner,
+                    BigDecimal penaltyFee, AccountStatus status, BigDecimal monthlyMaintenanceFee) {
         super(id, balance, secretKey, primaryOwner, secondaryOwner, penaltyFee, status);
-        this.minimumBalance = minimumBalance;
-        this.monthlyMaintenanceFee = monthlyMaintenanceFee;
-        this.creationDate = creationDate;
+        this.setMinimumBalance(defaultMinimumBalance);
+        this.setMonthlyMaintenanceFee(monthlyMaintenanceFee);
+        this.setCreationDate(new java.sql.Date(Calendar.getInstance().getTime().getTime()));
     }
 
     public Checking(BigDecimal balance) {
