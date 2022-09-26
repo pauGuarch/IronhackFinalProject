@@ -16,15 +16,13 @@ public class Account {
     @Column(name = "id")
     private Integer id;
     @Embedded
-
-    @Column(name = "balance")
     private Money balance;
     @Column(name = "secret_key")
     private String secretKey;
-    @ManyToOne(cascade=CascadeType.PERSIST)
+    @ManyToOne(cascade=CascadeType.MERGE)
     @JoinColumn(name = "primary_owner")
     private AccountHolder primaryOwner;
-    @ManyToOne(cascade=CascadeType.PERSIST)
+    @ManyToOne(cascade=CascadeType.MERGE)
     @JoinColumn(name = "secondary_owner")
     private AccountHolder secondaryOwner;
     @Column(name = "penalty_fee")
@@ -36,8 +34,7 @@ public class Account {
     public Account() {
     }
 
-    public Account(Integer id, Money balance, String secretKey, AccountHolder primaryOwner, AccountHolder secondaryOwner, BigDecimal penaltyFee, AccountStatus status) {
-        this.id = id;
+    public Account(Money balance, String secretKey, AccountHolder primaryOwner, AccountHolder secondaryOwner, BigDecimal penaltyFee, AccountStatus status) {
         this.setBalance(balance);
         this.setSecretKey(secretKey);
         this.setPrimaryOwner(primaryOwner);

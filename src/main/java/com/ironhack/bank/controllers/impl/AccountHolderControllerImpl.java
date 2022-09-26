@@ -28,7 +28,7 @@ public class AccountHolderControllerImpl implements AccountHolderController {
         return accountHolderService.saveAccountHolder(accountHolder);
     }
 
-    @DeleteMapping("/account_holder/{accountholderId}")
+    @DeleteMapping("/account_holder/{accountHolderId}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteAccountHolder(@PathVariable Integer accountHolderId) {
         System.out.println("entro controller");

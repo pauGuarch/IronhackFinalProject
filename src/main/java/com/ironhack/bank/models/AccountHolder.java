@@ -11,7 +11,7 @@ import java.sql.Date;
 public class AccountHolder extends User{
     @Column(name = "date_of_birth")
     private Date dateOfBirth;
-    @ManyToOne(cascade=CascadeType.PERSIST)
+    @ManyToOne(cascade=CascadeType.MERGE)
     @JoinColumn(name = "address")
     private Address address;
 

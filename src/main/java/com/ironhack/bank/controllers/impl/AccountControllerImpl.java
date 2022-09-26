@@ -30,11 +30,11 @@ public class AccountControllerImpl implements AccountController {
         return accountService.saveAccount(account);
     }
 
-    /*@PatchMapping("/account/{studentId}")
+    @PatchMapping("/account/{accountId}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void updateAccountAmount(@PathVariable BigDecimal amount, @RequestBody Money money) {
-        accountService.(studentId, spellList);
-    }*/
+    public void updateAccountAmount(@PathVariable Integer accountId, @RequestBody Money money) {
+        accountService.updateBalance(accountId, money);
+    }
 
     @DeleteMapping("/account/{accountId}")
     @ResponseStatus(HttpStatus.NO_CONTENT)

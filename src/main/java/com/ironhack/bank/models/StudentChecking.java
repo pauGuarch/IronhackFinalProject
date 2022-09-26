@@ -21,8 +21,8 @@ public class StudentChecking extends Account{
     public StudentChecking() {
     }
 
-    public StudentChecking(Integer id, Money balance, String secretKey, AccountHolder primaryOwner, AccountHolder secondaryOwner, BigDecimal penaltyFee, AccountStatus status, Date creationDate) {
-        super(id, balance, secretKey, primaryOwner, secondaryOwner, penaltyFee, status);
+    public StudentChecking(Money balance, String secretKey, AccountHolder primaryOwner, AccountHolder secondaryOwner, BigDecimal penaltyFee, AccountStatus status, Date creationDate) {
+        super(balance, secretKey, primaryOwner, secondaryOwner, penaltyFee, status);
         this.creationDate = creationDate;
     }
 

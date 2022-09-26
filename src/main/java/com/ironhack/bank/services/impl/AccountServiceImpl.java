@@ -19,11 +19,9 @@ public class AccountServiceImpl implements AccountService {
     @Override
     public Account getAccountById(Integer id) {
         Optional<Account> accountOptional = accountRepository.findById(id);
-
         if (accountOptional.isEmpty()) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Account not found");
         }
-
         return accountOptional.get();
     }
 
@@ -32,14 +30,24 @@ public class AccountServiceImpl implements AccountService {
         if (account.getId() != null && accountRepository.existsById(account.getId())) {
             throw new ResponseStatusException(HttpStatus.NOT_ACCEPTABLE, "This id: " + account.getId() + " already exists for another Student");
         }
+
         return accountRepository.save(account);
     }
 
     @Override
     public void deleteAccount(Integer studentId) {
         Account student = getAccountById(studentId);
-
         accountRepository.delete(student);
+    }
+
+    @Override
+    public void updateBalance(Integer accountId, Money money) {
+        Optional<Account> accountOptional = accountRepository.findById(accountId);
+        if (accountOptional.isEmpty() || money==null) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Account not found");
+        }
+        accountOptional.get().setBalance(money);
+        accountRepository.save(accountOptional.get());
     }
 
     public void subtractAccountBalance(Integer accountId, BigDecimal subtractAmount) {

@@ -1,6 +1,9 @@
 package com.ironhack.bank.models;
 
 import javax.persistence.*;
+import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.Digits;
+import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 @Entity
 @Table(name = "transaction")
@@ -10,12 +13,17 @@ public class Transaction {
     @Column(name = "id")
     private Integer id;
     @ManyToOne
+    @NotNull
     @JoinColumn(name = "origin_account")
     private Account originAccount;
     @ManyToOne
+    @NotNull
     @JoinColumn(name = "destiny_account")
     private Account destinyAccount;
     @Column(name = "amount")
+    @NotNull
+    @DecimalMin("0.01")
+    @Digits(integer=6, fraction=2)
     private BigDecimal amount;
 
     public Transaction() {

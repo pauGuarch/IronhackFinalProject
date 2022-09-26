@@ -4,18 +4,21 @@ import com.ironhack.bank.classes.Money;
 import com.ironhack.bank.enums.AccountStatus;
 
 import javax.persistence.*;
+import javax.validation.constraints.Digits;
 import java.math.BigDecimal;
 import java.sql.Date;
 import java.util.Calendar;
 import java.util.Currency;
 
 @Entity
-//@PrimaryKeyJoinColumn(name = "id")
+@PrimaryKeyJoinColumn(name = "id")
 //@DiscriminatorValue("1")
 public class Checking extends Account{
     private static final BigDecimal defaultMinimumBalance = BigDecimal.valueOf(250);
+    //@Digits(integer=3, fraction=2)
     @Column(name = "minimum_balance")
     private BigDecimal minimumBalance;
+    //@Digits(integer=3, fraction=2)
     @Column(name = "monthly_maintenance_fee")
     private BigDecimal monthlyMaintenanceFee;
     @Column(name = "creation_date")
@@ -24,18 +27,21 @@ public class Checking extends Account{
     public Checking() {
     }
 
-    public Checking(Integer id, Money balance, String secretKey, AccountHolder primaryOwner, AccountHolder secondaryOwner,
+    public Checking(Money balance, String secretKey, AccountHolder primaryOwner, AccountHolder secondaryOwner,
                     BigDecimal penaltyFee, AccountStatus status, BigDecimal monthlyMaintenanceFee) {
-        super(id, balance, secretKey, primaryOwner, secondaryOwner, penaltyFee, status);
+        super(balance, secretKey, primaryOwner, secondaryOwner, penaltyFee, status);
         this.setMinimumBalance(defaultMinimumBalance);
         this.setMonthlyMaintenanceFee(monthlyMaintenanceFee);
         this.setCreationDate(new java.sql.Date(Calendar.getInstance().getTime().getTime()));
     }
 
-    public Checking(BigDecimal balance) {
-        super();
-        setBalance(balance);
+    public Checking(BigDecimal monthlyMaintenanceFee) {
+        this.setMinimumBalance(defaultMinimumBalance);
+        this.setMonthlyMaintenanceFee(monthlyMaintenanceFee);
+        this.setCreationDate(new java.sql.Date(Calendar.getInstance().getTime().getTime()));
     }
+
+
 
     public void setBalance(BigDecimal balance) {
         Money money = new Money(balance);
