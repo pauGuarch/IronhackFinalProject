@@ -32,8 +32,8 @@ public class AccountControllerImpl implements AccountController {
 
     @PatchMapping("/account/{accountId}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void updateAccountAmount(@PathVariable Integer accountId, @RequestBody Money money) {
-        accountService.updateBalance(accountId, money);
+    public Account updateAccountBalance(@PathVariable Integer accountId, @RequestBody Money money) {
+        return accountService.updateBalance(accountId, money);
     }
 
     @DeleteMapping("/account/{accountId}")

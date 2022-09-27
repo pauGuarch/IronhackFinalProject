@@ -7,5 +7,5 @@ public interface AccountService {
     Account getAccountById(Integer id);
     Account saveAccount(Account account);
     void deleteAccount(Integer account);
-    void updateBalance(Integer accountId, Money money);
+    Account updateBalance(Integer accountId, Money money);
 }

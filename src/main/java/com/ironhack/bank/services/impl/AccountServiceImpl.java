@@ -41,13 +41,13 @@ public class AccountServiceImpl implements AccountService {
     }
 
     @Override
-    public void updateBalance(Integer accountId, Money money) {
+    public Account updateBalance(Integer accountId, Money money) {
         Optional<Account> accountOptional = accountRepository.findById(accountId);
         if (accountOptional.isEmpty() || money==null) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Account not found");
         }
         accountOptional.get().setBalance(money);
-        accountRepository.save(accountOptional.get());
+        return accountRepository.save(accountOptional.get());
     }
 
     public void subtractAccountBalance(Integer accountId, BigDecimal subtractAmount) {

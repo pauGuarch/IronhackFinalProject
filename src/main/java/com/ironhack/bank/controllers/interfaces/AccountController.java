@@ -8,5 +8,5 @@ public interface AccountController {
     Account getAccountById(Integer id);
     Account saveAccount(Account account);
     void deleteAccount(Integer accountId);
-    //Account updateBalance(Integer id, Money balance);
+    Account updateAccountBalance(Integer id, Money balance);
 }
