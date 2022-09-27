@@ -1,0 +1,287 @@
+{
+	"info": {
+		"_postman_id": "244c5d2a-4596-49ae-af05-eb5d3a0e066a",
+		"name": "Bank API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GetAccounts",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/account/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"account",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post Account",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"balance\": {\r\n        \"currency\": \"EUR\",\r\n        \"amount\": 2000.00\r\n    },\r\n    \"secretKey\": \"asdfg\",\r\n    \"primaryOwner\": {\r\n        \"id\": 3\r\n    },\r\n    \"secondaryOwner\": {\r\n        \"id\": 4\r\n    },\r\n    \"penaltyFee\": 10.00,\r\n    \"status\": \"ACTIVE\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/account",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"account"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Account",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/account/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"account",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post Checking",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{   \r\n    \"balance\":{\r\n    \"currency\":\"USD\" ,\r\n        \"amount\": 3000\r\n    },\r\n    \"secretKey\": \"asdfg\",\r\n    \"primaryOwner\": {\r\n        \"id\": 1\r\n    },\r\n    \"status\": \"ACTIVE\",\r\n    \"minimumBalance\": 100.00,\r\n    \"monthlyMaintenanceFee\": 10.00\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/checking",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"checking"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Checkings",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/checking/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"checking",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Checking",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/checking/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"checking",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get AccountHolder",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/account_holder/6",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"account_holder",
+						"6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post AccountHolder",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Jordi Pujol\",\r\n    \"userName\": \"jordi_pujol\",\r\n    \"password\": \"qwerty\",\r\n    \"role\": \"USER\",\r\n    \"dateOfBirth\": \"2008-09-09\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/account_holder",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"account_holder"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete AccountHolder",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/account_holder/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"account_holder",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Admin",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/admin/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"admin",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Transaction",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/transaction/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"transaction",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post Transaction",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"originAccount\": {\r\n        \"id\":1\r\n    },\r\n    \"destinyAccount\": {\r\n        \"id\": 2\r\n        },\r\n    \"amount\": 20.00\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/transaction",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"transaction"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
